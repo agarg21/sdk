@@ -64,6 +64,8 @@ jobs:
           echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
 
       - name: Setup cluster
+        env:
+          E2E_SKIP_UNUSED_RUNTIME_IMAGES: "true"
         run: |
           cd ./trainer
           make test-e2e-setup-cluster \
